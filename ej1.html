@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
 
+<body>
     <script>
         /*página cuyo color de fondo sea aleatorio*/
+
+        var uno = Math.floor(Math.random() * (256 - 1)) + 1;
+        var dos = Math.floor(Math.random() * (256 - 1)) + 1;
+        var tres = Math.floor(Math.random() * (256 - 1)) + 1;
+
+        document.body.style.backgroundColor = "rgb(" + uno + "," + dos + "," + tres + ")";
     </script>
 </body>
+
 </html>
