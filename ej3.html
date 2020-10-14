@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    var tipoFruta = prompt("¿Te gustaría tomar algo?");
+
+    if(tipoFruta != null){ 
+        tipoFruta = tipoFruta.toLowerCase();
+        }
+
+        switch (tipoFruta) {
+            case "naranjas":
+                alert("Naranjas cuestan 0,59€ el kilo.");
+                break;
+            case "manzanas":
+                alert("Manzanas cuestan 0,32€ el kilo.");
+                break;
+            case "plátanos":
+                alert("Plátanos cuestan 0,48€ el kilo.");
+                break;
+            case "cerezas":
+                alert("Cerezas cuestan 3,00€ el kilo.");
+                break;
+            case "mangos":
+                alert("Mangos cuestan 0,56€ el kilo.");
+                break;
+            case "papayas":
+                alert("Mangos y papayas cuestan 2,79€ el kilo.");
+                break;
+            default:
+                alert("Disculpa, no tenemos el tipo de fruta " + tipoFruta + ".");
+        }
+    </script>
+</body>
+</html>

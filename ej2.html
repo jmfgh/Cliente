@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+    <script>
+        /* Crear aplicacion web que pida en cuadros de lectura de datos o promt el nombre, apellidos y salario (num con decimales) y edad de la persona (entero).
+        La página muestra el nombre, apellidos, edad y salario recalculado según:
+        a-Si está entre 1000 y 2000 
+        Si es mayor de 45 años se incrementa un 3%
+        Si es <= de 45,se incrementa un 10%
+        b-Si es menor de 1000
+        Si es menor de 30 años se le asigna un salario de 1100
+        Si está entre 30-45, el salario se incrementa un 3%
+        Si la persona es mayor de 45, sube un 15%
+        */
+
+        var nombre = prompt("introduzca nombre:");
+        var apellidos = prompt("introduzca apellidos:");
+        var salario = parseFloat(prompt("introduzca salario:"));
+        var edad = parseInt(prompt("introduzca edad:"));
+
+        if (salario < 1000) {
+            if (edad < 30) {
+                salario = 1100;
+            } else if (edad >= 30 && edad <= 45) {
+                salario *= 1.3;
+            } else {
+                salario *= 1.15;
+            }
+        } else if (salario >= 1000 && salario <= 2000) {
+            if (edad > 45) {
+                salario *= 1.3;
+            } else {
+                salario *= 1.10;
+            }
+        }
+
+        alert("Nombre: " + nombre);
+        alert("Apellidos: " + apellidos);
+        alert("Edad: " + edad);
+        alert("Salario: " + salario);
+    </script>
+</body>
+
+</html>
