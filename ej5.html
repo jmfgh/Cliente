@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        var nom = prompt("Dime un nombre: ");
+
+        var lista = new Array("Jose", "Luis", "David", "Maria");
+
+        encontrado = false;
+
+        for (i = 0; i < lista.length; i++) {
+            var nombre = lista[i];
+            
+            if(nombre == nom){
+                document.write("El nombre está en la posición " + i);
+                encontrado = true;
+                break;
+            }
+        }            
+        
+        if(!encontrado){
+            document.write("El nombre no está.");
+        }
+
+    </script>
+</body>
+
+</html>

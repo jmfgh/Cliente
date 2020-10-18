@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        var num = Math.floor(Math.random() * (100 - 1)) + 1;
+
+        do{
+            var res = Number(prompt("¿Sabes qué número entre el 1 y el 100 estoy pensando?"));
+        }while(!Number.isInteger(res));
+
+        do{
+            if(res > num){
+                res = Number(prompt("¡No! El número que has dicho es más alto"));
+            }else if(res < num){
+                res = Number(prompt("¡No! El número que has dicho es más bajo"));
+            }
+
+        }while( res != num);
+
+        document.write("¡Has acertado! era el " + num);
+
+    </script>
+</body>
+
+</html>
