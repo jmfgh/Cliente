@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="credenciales">
+        Usuario <input type="text" name="usuario"><br>
+
+        Contraseña <input type="password" name="clave"><br>
+        
+        <input type="button" onclick="validar()" value="Validar">
+    </form>
+    <script>
+        var intentos = 0;
+
+        function validar(){
+            var ok = false;
+            intentos++;
+
+            if(intentos <= 3){
+                var nombre = document.credenciales.usuario.value;
+                var contra = document.credenciales.clave.value;
+
+                for(i = 0; i < registrado.length; i++){
+                    if(nombre == registrado[i]){
+                        for(a = 0; a < senya.length; a++){
+                            if(contra == senya[i]){
+                            ok = true;
+                            break;
+                            }
+                        }
+                    }
+                }
+
+                if(ok){
+                    alert("Bienvenido " + nombre + ", has tenido " + intentos + " intentos.");
+                }else{
+                    alert("Datos de registro erróneos. Vuelve a introducirlos y pulsa el botón.");
+                        document.credenciales.usuario.value = "";
+                        document.credenciales.clave.value = "";
+                    alert("Número de intentos: " + intentos);                            
+                }
+            }else{
+                alert("Has agotado el número de intentos.");
+            }
+        }
+
+        var registrado = ["alumno", "root" , "usuario", "jose", "cliente"];
+        var senya = ["alumno20", "1234", "0000", "pasa", "sesamo"];
+     
+    </script>
+</body>
+</html>
