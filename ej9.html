@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>  
+
+    <img src="" name="midado" width="64" height="64">
+    <input type="button" onclick="tirar()" value="Tirada">
+    <script>
+
+        function tirar(){
+            var number = Math.floor(Math.random() * (6 - 1)) + 1;
+
+            document.images["midado"].src="./img/dado"+ number + ".png";
+        }
+
+     
+    </script>
+</body>
+</html>

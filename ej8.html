@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="credenciales">
+        <input type="text" name="mensaje"> Mensaje<br>
+
+        <input type="number" name="clave"> Número de Cifrado<br>
+        
+        <input type="button" onclick="cifrar()" value="Cifrar">
+    </form>
+    <script>
+
+        function cifrar(){
+
+            var mensaje = document.credenciales.mensaje.value;
+
+            var num = parseInt(document.credenciales.clave.value);
+
+            var cifrado  = "";
+
+            for (let i = 0; i < mensaje.length; i++) {
+
+                codigo = mensaje.charCodeAt(i);
+                
+                cifrado+= String.fromCharCode(codigo + num);
+            }
+
+            alert(cifrado);
+        }
+
+    </script>
+</body>
+</html>
