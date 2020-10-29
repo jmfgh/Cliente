@@ -6,20 +6,24 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="resu"></div>
 <script>
     /*crear array de 10 posiciones y asignar a cada posicion un numero aleatorio entre 0 y 25. 
     Recorrerlo y mostrar asteriscos en función del valor de cada posición*/
 
     var aleatorios = new Array(10);
+    var mensaje = "";
 
     for (let i = 0; i < aleatorios.length; i++) {
         aleatorios[i] = Math.round(Math.random() * 25);
-        document.write("Numero: " + aleatorios[i] + " -> ");
+        mensaje += "Numero: " + aleatorios[i] + " -> ";
         for(let j = 0; j < aleatorios[i]; j++) {
-            document.write("*");
+            mensaje += "*";
         }
-        document.write("<br>");
+        mensaje += "\n";
     }
+
+    document.getElementById("resu").innerText = mensaje;
 
 </script>
 </body>
