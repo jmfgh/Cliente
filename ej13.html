@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="formu">
+        Nombre <input type="text" name="nombre"><br><br>
+        Informe <input type="text" name="info"><br><br>
+        <input type="button" value="Buscar" onclick="buscar()">
+        <input type="button" value="Añadir" onclick="meter()">
+        <input type="button" value="Borrar" onclick="borrar()">
+        <input type="reset" value="resetear">
+    </form>
+<script>
+    /*array de 10 alumnos. Input que pida nombre y otro que muestre el resultado. 
+    Boton de buscar y boton de añadir y boton de borrar.*/
+
+    lista = ["Jose", "David", "Marta", "Laura", "Aitana", "Luis", "Zayton", "Ryan", "Daniela", "Isabel"];
+
+    function buscar(){
+        var buscado = document.formu.nombre.value;
+        var informe = document.formu.info;
+        var encontrado = false;
+
+        for (nombre of lista) {
+            if(buscado == nombre){
+                encontrado = true;
+                break;
+            }
+        }
+
+       informe.value = (encontrado)? buscado +" encontrado" : "Ese alumno no existe.";
+    }
+
+    function meter(){
+        var buscado = document.formu.nombre.value;
+        var informe = document.formu.info;
+
+        lista.push(buscado);
+
+        informe.value = "Alumno añadido.";
+        alert(lista);
+    }
+
+    function borrar(){
+        var buscado = document.formu.nombre.value;
+        var informe = document.formu.info;
+        var encontrado = false;
+
+        for (i = 0; i < lista.length; i++) {
+            if(buscado == lista[i]){
+                encontrado = true;
+                lista.splice(i , 1);
+                break;
+            }
+        }
+
+       informe.value = (encontrado)? buscado +" borrado" : "Ese alumno no existe.";
+       alert(lista);
+    }
+
+</script>
+</body>
+</html>
