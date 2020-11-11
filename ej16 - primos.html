@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="formu">
+        <h1>Numeros primos</h1> 
+        <textarea name="resu" cols="30" rows="10"></textarea><br><br>
+        <input type="button" value="ejecutar" onclick="esPrimo()">
+
+    </form>
+<script>        
+
+    var listaPrimos = [];
+
+    function esPrimo(){
+
+        for(i = 2; i <= 500; i++){
+
+            primo = true;
+
+            for(j = 2; j < i; j++){
+                if(i % j === 0){
+                    primo = false;
+                    break;
+                }
+            }
+
+            if(primo){
+                listaPrimos.push(i);
+            }
+        }
+
+        document.formu.resu.innerText = listaPrimos;
+    }
+
+</script>
+</body>
+</html>

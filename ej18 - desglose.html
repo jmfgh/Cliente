@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, td, th{
+            border: 1px solid black;
+            text-align: center;
+        }
+        button{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form name="formu">
+        Introduce numero  <input type="text" name="num"><br><br>
+        <button onclick="pintaTabla()"">ejecutar</button>
+    </form>
+<script>  
+
+    function pintaTabla(){
+
+        num = document.formu.num.value;
+
+        var monedas= [500, 200, 100, 50, 20, 10, 5, 2, 1, 0.5, 0.20, 0.10, 0.05, 0.02, 0.01];
+        var cambio= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+        
+        for(i=0; i<monedas.length; i++){
+            if(num>=monedas[i])
+            {
+                cambio[i]=parseInt(num/monedas[i]);
+
+                num=(num-(cambio[i]*monedas[i]));
+            }
+        }
+        
+        mensaje = "<table><thead><tr><th>Billetes/monedas</th><th>Cantidad</th></tr></thead><tbody>";
+        for(i=0; i<monedas.length; i++){
+            mensaje+= "<tr><td>"+monedas[i]+"</td><td>"+cambio[i]+"</td></tr>";
+        }
+        mensaje+="</tbody></table>";
+
+        document.body.innerHTML = mensaje;
+    }
+
+</script>
+</body>
+</html>

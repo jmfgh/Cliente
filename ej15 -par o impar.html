@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="formu">
+        Numero <input type="text" name="num"><br><br>
+        <textarea name="resu" cols="30" rows="10"></textarea><br><br>
+        <input type="button" value="comprobar" onclick="par(parseInt(document.formu.num.value))">
+
+    </form>
+<script>
+
+    function par(num){
+
+        if(num%2 == 0){
+            document.formu.resu.innerText = "Es Par";
+        }else{
+            document.formu.resu.innerText = "Es Impar";
+        }
+    }
+
+</script>
+</body>
+</html>

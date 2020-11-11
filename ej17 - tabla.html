@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="formu">
+        Numero de Tablas <input type="text" name="tablas"><br><br>
+        Numero de Filas <input type="text" name="filas"><br><br>
+        Numero de Columnas <input type="text" name="columnas"><br><br>
+        Color de borde <input type="text" name="color"><br><br>
+        <input type="button" value="ejecutar" onclick="pintaTabla(document.formu.tablas.value, document.formu.filas.value, document.formu.columnas.value, document.formu.color.value)">
+    </form>
+
+    <div name="tabla"></div>
+<script>  
+
+    mensaje = "";
+
+    function pintaTabla(tablas, filas, columnas, color){
+
+        tablas = (tablas == "")? 1 : tablas;
+        filas = (filas == "")? 10 : filas;
+        columnas = (columnas == "")? 4 : columnas;
+        color = (color == "")? "black" : color;
+
+        for(i = 1; i <= tablas; i++){
+            mensaje += "<table width='100%' style='border: 3px solid "+ color +"; margin: 20px 0px;'>";
+                for(j = 1; j <= filas; j++){
+                    mensaje += "<tr>";
+                        for(k = 1; k <= columnas; k++){
+                            mensaje += "<td style='border: 3px solid "+ color +"; padding: 10px;'>";
+                        }
+                    mensaje += "</tr>";
+                }
+            mensaje += "</table>";
+        }
+
+        document.body.innerHTML = mensaje;
+    }
+
+</script>
+</body>
+</html>
