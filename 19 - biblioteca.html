@@ -11,49 +11,65 @@
         Autor <input type="text" name="autor"><br><br>
         Editorial <input type="text" name="editorial"><br><br>
         Año Edición <input type="text" name="annio"><br><br>
-        <textarea name="resu" cols="30" rows="10"></textarea>
-        <button onclick="guardarLibro()">Guardar</button>
-        <button onclick="verLibros()">Visualizar</button>
+        <textarea name="resu" cols="30" rows="10"></textarea><br><br>
+        <input type="button"  value="Guardar" onclick="guardarLibro()">
+        <input type="button"  value="Visualizar" onclick="verLibros()">
     </form>
 <script>  
     var libros = [];
-
-    function crearSignatura(){
-        signatura = "";
-        signatura+= titulo.slice(0,2);
-        signatura+= annio;
-        signatura+= editorial;
-    }
 
     function crearLibro(titulo, autor, editorial, annio){
         this.titulo = titulo;
         this.autor = autor;
         this.editorial = editorial;
         this.annio = annio;
-        this.signatura = crearSignatura();
+        this.signatura = crearSignatura;
+
+        function crearSignatura(){
+            signatura = "";
+            signatura+= autor.slice(0,2);
+            signatura+= annio;
+            signatura+= editorial;
+
+            return signatura;
+        }
     }
 
     function guardarLibro(){
-        var titulo = document.formu[0].value;
-        var autor = document.formu[1].value;
-        var editorial = document.formu[2].value;
-        var annio = document.formu[3].value;
+        var titulo = document.formu.titulo.value;
+        var autor = document.formu.autor.value;
+        var editorial = document.formu.editorial.value;
+        var annio = document.formu.annio.value;
 
-        var libro = new crearLibro(titulo, autor, editorial, annio);
+        if(titulo != "" && autor != "" && editorial != "" && annio!= ""){
 
-        libros.push(libro);
+            var libro = new crearLibro(titulo, autor, editorial, annio);
+
+            libros.push(libro);
+
+            alert("Libro guardado correctamente.");
+
+            document.formu.titulo.value = "";
+            document.formu.autor.value = "";
+            document.formu.editorial.value = "";
+            document.formu.annio.value = "";
+        }else{
+            alert("No has introducido los datos.");
+        }
     }
 
     function verLibros(){
         var mensaje = "";
 
-        for(libro in libros){
-            mensaje+= libro.titulo + "<br><br>";
-            mensaje+= "&nbsp;"+ libro.autor + "<br><br>";
-            mensaje+= "&nbsp;"+ libro.editorial + "<br><br>";
-            mensaje+= "&nbsp;"+ libro.annio + "<br><br>";
-            mensaje+= "&nbsp;"+ libro.signatura() + "<br><br><br><br>";
+        for(i = 0; i < libros.length; i++){
+            mensaje+= libros[i].titulo + "\n";
+            mensaje+= "\&nbsp;\&nbsp; Autor: "+ libros[i].autor + "\n";
+            mensaje+= "\&nbsp;\&nbsp; Editorial:"+ libros[i].editorial + "\n";
+            mensaje+= "\&nbsp;\&nbsp; Año:"+ libros[i].annio + "\n";
+            mensaje+= "\&nbsp;\&nbsp; Signatura:"+ libros[i].signatura() + "\n\n";
         }
+
+        document.formu.resu.innerHTML = mensaje;
     }
    
 
