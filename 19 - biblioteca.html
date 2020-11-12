@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="formu">
+        Titulo <input type="text" name="titulo"><br><br>
+        Autor <input type="text" name="autor"><br><br>
+        Editorial <input type="text" name="editorial"><br><br>
+        Año Edición <input type="text" name="annio"><br><br>
+        <textarea name="resu" cols="30" rows="10"></textarea>
+        <button onclick="guardarLibro()">Guardar</button>
+        <button onclick="verLibros()">Visualizar</button>
+    </form>
+<script>  
+    var libros = [];
+
+    function crearSignatura(){
+        signatura = "";
+        signatura+= titulo.slice(0,2);
+        signatura+= annio;
+        signatura+= editorial;
+    }
+
+    function crearLibro(titulo, autor, editorial, annio){
+        this.titulo = titulo;
+        this.autor = autor;
+        this.editorial = editorial;
+        this.annio = annio;
+        this.signatura = crearSignatura();
+    }
+
+    function guardarLibro(){
+        var titulo = document.formu[0].value;
+        var autor = document.formu[1].value;
+        var editorial = document.formu[2].value;
+        var annio = document.formu[3].value;
+
+        var libro = new crearLibro(titulo, autor, editorial, annio);
+
+        libros.push(libro);
+    }
+
+    function verLibros(){
+        var mensaje = "";
+
+        for(libro in libros){
+            mensaje+= libro.titulo + "<br><br>";
+            mensaje+= "&nbsp;"+ libro.autor + "<br><br>";
+            mensaje+= "&nbsp;"+ libro.editorial + "<br><br>";
+            mensaje+= "&nbsp;"+ libro.annio + "<br><br>";
+            mensaje+= "&nbsp;"+ libro.signatura() + "<br><br><br><br>";
+        }
+    }
+   
+
+</script>
+</body>
+</html>
