@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="formu">
+        <textarea name="resu" cols="30" rows="10"></textarea><br><br>
+        <input type="button"  value="Visualizar" onclick="verLibros()">
+        <input type="button"  value="Limpiar" onclick="limpiar()">
+    </form>
+<script>  
+    var libros = {
+        Libro1: {
+            titulo: "Don Quijote de la Mancha",
+            autor: "Miguel de Cervantes",
+            editorial: "Anaya",
+            annio: "2000"
+        }
+    }
+
+    function crearSignatura(libro, i){
+        signatura = "";
+        signatura+= libro.autor.slice(0,2);
+        signatura+= libro.annio;
+        signatura+= libro.editorial;
+
+        return signatura;
+    }
+
+    function verLibros(){
+        var mensaje = "";
+
+        mensaje+= libros.Libro1.titulo + "\n";
+        mensaje+= "\&nbsp;\&nbsp; Autor: "+ libros.Libro1.autor + "\n";
+        mensaje+= "\&nbsp;\&nbsp; Editorial:"+ libros.Libro1.editorial + "\n";
+        mensaje+= "\&nbsp;\&nbsp; Año:"+ libros.Libro1.annio + "\n";
+        mensaje+= "\&nbsp;\&nbsp; Signatura:"+ crearSignatura(libros.Libro1, 0) + "\n\n";
+
+        document.formu.resu.innerHTML = mensaje;
+    }
+
+    function limpiar(){
+        document.formu.resu.innerHTML = "";
+    }
+   
+
+</script>
+</body>
+</html>
