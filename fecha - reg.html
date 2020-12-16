@@ -1,0 +1,39 @@
+<HTML> 
+<HEAD> 
+<TITLE>Ejemplo de JavaScript</TITLE> 
+</HEAD> 
+<BODY> 
+<SCRIPT LANGUAGE="JavaScript"> 
+function validarFecha() {
+
+var fecha1 = document.form.fecha.value;
+
+if (/^\d{2}\/\d{2}\/\d{4}$/.test(fecha1)){
+    var fecha2 = promt("La fecha es correcta. Introduce una segunda fecha:"); 
+
+    if (/^\d{2}\/\d{2}\/\d{4}$/.test(fecha2)){
+        alert("La segunda fecha es correcta."); 
+    }else{
+        alert("La segunda fecha es incorrecta."); 
+    }
+
+    fecha3 = new Date().getTime();
+    fecha4 = new Date().getTime();
+
+    var dif = fechaFin - fechaInicio;
+
+    alert(dif/(1000*60*60*24));
+}
+ else
+ {
+  alert("La fecha es incorrecta. Vuelve a introducir una fecha correcta.");
+  return (false);
+ }
+}
+</SCRIPT>
+<FORM >
+<input type="text" name="fecha" size="50">
+<input type="button" value="Validar" onclick="validarFecha();">
+</FORM>
+</BODY> 
+</html>
